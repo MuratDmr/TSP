@@ -1,12 +1,14 @@
-package travel2;
-
 import java.util.*;
 
 public class travel2 {
 
 	public static void main(String[] args) {
 
-		// Random variable2 = new Random();
+		// Random variable = new Random();
+
+		System.out.println(" Traveling Salesman Problem");
+
+		System.out.println();
 
 		Random variable = new Random(); // create an object Random with the name
 										// variable
@@ -17,8 +19,8 @@ public class travel2 {
 													// cities.lenght end (inner)
 
 			for (int j = 0; j < cities[i].length; j++) {// loop from 0 to
-															// cities.lenght end
-															// (outer)
+														// cities.lenght end
+														// (outer)
 
 				if (i == j) { // compare i with J
 
@@ -34,6 +36,8 @@ public class travel2 {
 					cities[j][i] = cities[i][j]; // reflect the pos: [i][j] to
 													// [j][i]
 
+				
+
 				}
 
 			}
@@ -44,18 +48,21 @@ public class travel2 {
 
 			for (int j = 0; j < cities[i].length; j++) {
 
-				System.out.print(cities[i][j] + " , "); // output from the
+				System.out.print(cities[i][j] + " || ");   // output from the
 															// array cities
+				
 
 			}
 
 			System.out.println();
+		
 
 		}
 		int[] travel = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // array travel[10]
 		System.out.println();
 		System.out.println("The length of the round trip is:");
 		System.out.println(distance(travel, cities));
+		System.out.println();
 		for (int k = 0; k < 100000; k++) {
 
 			int i = (int) (Math.random() * 9.0); // take random index position from travel array
@@ -73,12 +80,12 @@ public class travel2 {
 				System.out.println(travel2);
 			} else
 				swap(travel, j, i);
-
+		
 		}
 
 	}
 
-	public static int distance(int travel[], int cities [][]) { // function with
+	public static int distance(int travel[], int cities[][]) { // function with
 																// paramater
 
 		int calcdistance = 0;
@@ -86,16 +93,13 @@ public class travel2 {
 		for (int z = 0; z < travel.length - 1; z++) { // loop from 0 to
 														// travel.length end
 
-			calcdistance += cities [travel[z]][travel[z + 1]]; // calculate the
+			calcdistance += cities[travel[z]][travel[z + 1]]; // calculate the
 																// distance from
 																// cities
 																// pos:travel[z}travel[z+1]
 
 		}
-		calcdistance += cities[travel[travel.length - 1]][0]; // to complete the
-																// travel
-																// calculate the
-																// step back
+
 		return calcdistance;
 
 	}
